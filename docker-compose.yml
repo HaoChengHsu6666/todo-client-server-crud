@@ -1,0 +1,11 @@
+services:
+  angular-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: angular-dev
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "4200:4200"
+    tty: true

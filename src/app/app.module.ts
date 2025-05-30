@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppPowerBoostCalculatorComponent } from './app-power-boost-calculator/app-power-boost-calculator.component';
 import { ExponentialStrengthPipePipe } from './exponential-strength-pipe.pipe';
+import { UnlessDirective } from './unless.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppPowerBoostCalculatorComponent,
-    ExponentialStrengthPipePipe
+    ExponentialStrengthPipePipe,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,

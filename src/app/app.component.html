@@ -18,3 +18,27 @@
 </table>
 
 <power-boost-calculator></power-boost-calculator>
+
+<!-- show選擇方式1 -->
+
+<!--
+<input type="checkbox" [(ngModel)]="isVisible"> 顯示內容？
+
+<div *appUnless="isVisible">
+  我只有在 isVisible 為 false 時才出現
+</div> 
+-->
+
+<!-- show選擇方式2 -->
+
+<p *appUnless="condition" class="unless a">
+  (A) 由於條件為假，因此顯示此段落。
+</p>
+
+<p *appUnless="!condition" class="unless b">
+  (B) 儘管條件為真，但由於 appUnless 設定為 false，因此會顯示此段落。
+</p>
+
+<button (click)="condition = !condition">
+  Toggle Condition (現在狀態: {{ condition }})
+</button>

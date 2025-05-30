@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { AppPowerBoostCalculatorComponent } from './app-power-boost-calculator/app-power-boost-calculator.component';
 import { ExponentialStrengthPipePipe } from './exponential-strength-pipe.pipe';
 import { UnlessDirective } from './unless.directive';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppPowerBoostCalculatorComponent,
     ExponentialStrengthPipePipe,
-    UnlessDirective
+    UnlessDirective,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

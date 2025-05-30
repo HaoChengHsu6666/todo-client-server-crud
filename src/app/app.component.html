@@ -42,3 +42,13 @@
 <button (click)="condition = !condition">
   Toggle Condition (現在狀態: {{ condition }})
 </button>
+
+
+<!-- 傳入字串 -->
+<p [appHighlight]="'yellow'">我會在 hover 時變成黃色</p>
+
+<!-- 傳入變數 -->
+<p [appHighlight]="myColor">我會變成變數指定的顏色</p>
+
+<!-- 如果沒傳值，預設為紅色 -->
+<p appHighlight>我會變成紅色</p>

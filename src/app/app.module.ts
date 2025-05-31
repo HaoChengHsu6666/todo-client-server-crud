@@ -9,6 +9,7 @@ import { ExponentialStrengthPipePipe } from './exponential-strength-pipe.pipe';
 import { UnlessDirective } from './unless.directive';
 import { HighlightDirective } from './highlight.directive';
 import { MessageBoardComponent } from './message-board/message-board.component';
+import { TodoListModule } from './todo-list/todo-list.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MessageBoardComponent } from './message-board/message-board.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    TodoListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

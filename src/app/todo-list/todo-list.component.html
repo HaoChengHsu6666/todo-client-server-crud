@@ -1,0 +1,33 @@
+<section class="todoapp">
+
+  <header class="header">
+	<h1>todos</h1>
+    <!-- #todoInput 為 Angular 中的 template reference variable（模板參考變數），
+     它讓你可以在同一個 HTML 範圍中，直接存取這個 DOM 元素（不會查到 TypeScript class 裡） -->
+    <input
+      #todoInput  
+      type="text"  
+      class="new-todo"
+      placeholder="What needs to be done?"
+      autofocus
+      (keyup.enter)="addTodo(todoInput.value); todoInput.value=''"
+    >
+  </header>
+
+  <!-- 清單區域開始 -->
+  <section class="main" *ngIf="getList().length">
+
+    <ul class="todo-list">
+      <li *ngFor="let todo of getList()">
+        <div class="view">
+          <input class="toggle" type="checkbox">
+          <label>{{ todo }}</label>
+          <button class="destroy"></button>
+        </div>
+      </li>
+    </ul>
+
+  </section>
+  <!-- 清單區域結束 -->
+
+</section>

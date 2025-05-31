@@ -8,6 +8,7 @@ import { AppPowerBoostCalculatorComponent } from './app-power-boost-calculator/a
 import { ExponentialStrengthPipePipe } from './exponential-strength-pipe.pipe';
 import { UnlessDirective } from './unless.directive';
 import { HighlightDirective } from './highlight.directive';
+import { MessageBoardComponent } from './message-board/message-board.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HighlightDirective } from './highlight.directive';
     AppPowerBoostCalculatorComponent,
     ExponentialStrengthPipePipe,
     UnlessDirective,
-    HighlightDirective
+    HighlightDirective,
+    MessageBoardComponent
   ],
   imports: [
     BrowserModule,

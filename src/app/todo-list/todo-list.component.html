@@ -2,27 +2,55 @@
 
   <header class="header">
 	<h1>todos</h1>
-    <!-- #todoInput 為 Angular 中的 template reference variable（模板參考變數），
-     它讓你可以在同一個 HTML 範圍中，直接存取這個 DOM 元素（不會查到 TypeScript class 裡） -->
-    <input
-      #todoInput  
-      type="text"  
-      class="new-todo"
-      placeholder="What needs to be done?"
-      autofocus
-      (keyup.enter)="addTodo(todoInput.value); todoInput.value=''"
-    >
+    <div class="input-wrapper">
+      <input
+              id="toggle-all"
+              class="toggle-all"
+              type="checkbox"
+              *ngIf="getAllList().length"
+              #toggleall
+              [checked]="allCompleted()"
+              (click)="setAllTo(toggleall.checked)"
+            >
+      <label for="toggle-all"></label>
+      <!-- #todoInput 為 Angular 中的 template reference variable（模板參考變數），
+      它讓你可以在同一個 HTML 範圍中，直接存取這個 DOM 元素（不會查到 TypeScript class 裡） -->
+      <input
+        #todoInput  
+        type="text"  
+        class="new-todo"
+        placeholder="What needs to be done?"
+        autofocus
+        (keyup.enter)="addTodo(todoInput.value); todoInput.value=''"
+      >
+    </div>  
   </header>
 
   <!-- 清單區域開始 -->
   <section class="main" *ngIf="getList().length">
-
     <ul class="todo-list">
-      <li *ngFor="let todo of getList()">
+      <li *ngFor="let todo of getList() let i = index"
+          [class.completed]="todo.done"
+          [class.editing]="todo.editing"
+      >
         <div class="view">
-          <input class="toggle" type="checkbox">
-          <label>{{ todo }}</label>
-          <button class="destroy"></button>
+          <input class="toggle" 
+                  type="checkbox"
+                  (click)="todo.toggleCompletion()"
+                  [checked]="todo.done"
+          >
+          <!-- 僅當編輯狀態才顯示輸入框 -->
+          <input class="edit"
+                  #editedtodo
+                  *ngIf="todo.editing"
+                  [value]="todo.getTitle()"
+                  (blur)="update(todo, editedtodo.value)"
+                  (keyup.enter)="update(todo, editedtodo.value)"
+                  (keyup.escape)="cancelEditing(todo)"
+          >
+          <label *ngIf="!todo.editing" (dblclick)="edit(todo)">{{ todo.getTitle() }}</label>
+          <button class="destroy" (click)="remove(i)">X</button>
+          
         </div>
       </li>
     </ul>
@@ -31,3 +59,56 @@
   <!-- 清單區域結束 -->
 
 </section>
+  
+  <footer 
+    class="footer" 
+    *ngIf="getList().length"
+  >
+    <span class="todo-count">
+      <!-- 省略 -->
+    </span>
+
+    <ul class="filters">
+
+      <li>
+        <a
+        href="javascript:;"
+        [class.selected]="checkStatus(todoStatusType.All)"
+        (click)="setStatus(todoStatusType.All)"
+        >
+          All
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="javascript:;"
+          [class.selected]="checkStatus(todoStatusType.Active)"
+          (click)="setStatus(todoStatusType.Active)"
+        >
+          Active
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="javascript:;"
+          [class.selected]="checkStatus(todoStatusType.Completed)"
+          (click)="setStatus(todoStatusType.Completed)"
+        >
+          Completed
+        </a>
+      </li>
+
+    </ul>
+
+    <button
+      class="clear-completed"
+      *ngIf="getCompletedList().length"
+      (click)="removeCompleted()"
+    >
+      Clear completed
+    </button>
+
+  </footer>
+  

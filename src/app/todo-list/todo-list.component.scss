@@ -42,3 +42,134 @@ input[type="text"]::placeholder {
 input[type="text"]:focus {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
+
+.todo-item .destroy {
+  visibility: hidden; /* 預設隱藏 */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.todo-item:hover .destroy {
+  visibility: visible;
+  opacity: 1;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.view {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.destroy {
+  background: none;
+  border: none;
+  color: rgba(175, 47, 47, 0.5);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+
+.destroy:hover {
+  color: red;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  font-size: 16px;
+  flex-wrap: wrap;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* 隱藏原生 checkbox */
+.toggle-all {
+  display: none;
+}
+
+/* 自訂 label 樣式為箭頭 */
+label[for="toggle-all"] {
+  transform: rotate(90deg); /* 向下 */
+  font-size: 24px;
+  color: #030303;
+  margin-right: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+label[for="toggle-all"]::before {
+  content: "⌄"; /* 或用 ❯ 搭配 transform: rotate(90deg) */
+}
+
+label[for="toggle-all"] {
+  display: block;
+  width: 60px;
+  height: 34px;
+  background: none;
+  position: relative;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+label[for="toggle-all"]::before {
+  content: "❯";
+  font-size: 22px;
+  color: #e6e6e6;
+  padding: 10px 27px;
+  transform: rotate(90deg); /* 轉向下 */
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filters li a {
+  text-decoration: none;
+  color: inherit;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.filters li a.selected {
+  border: 1px solid rgba(175, 47, 47, 0.2);
+}
+
+.todo-list li {
+  font-size: 24px;
+  padding: 20px;
+}
+
+.todo-list li label {
+  font-size: 24px;
+}
+
+.todo-list input.toggle {
+  width: 30px;
+  height: 30px;
+}
+
+.todo-list .destroy {
+  font-size: 30px;
+}

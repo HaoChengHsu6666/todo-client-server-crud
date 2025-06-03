@@ -10,6 +10,10 @@ import { UnlessDirective } from './unless.directive';
 import { HighlightDirective } from './highlight.directive';
 import { MessageBoardComponent } from './message-board/message-board.component';
 import { TodoListModule } from './todo-list/todo-list.module';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { TodoListModule } from './todo-list/todo-list.module';
     ExponentialStrengthPipePipe,
     UnlessDirective,
     HighlightDirective,
-    MessageBoardComponent
+    MessageBoardComponent,
+    HomeComponent,
+    AboutComponent,
+    LoginComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

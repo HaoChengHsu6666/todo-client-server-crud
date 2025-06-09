@@ -1,4 +1,27 @@
 <div class="login-container">
-  <button class="login-button" routerLink="/home">登入</button>
+  <form (ngSubmit)="login()" class="login-form">
+    <div class="form-group">
+      <label for="username">帳號：</label>
+      <input
+        [(ngModel)]="username"
+        name="username"
+        id="username"
+        placeholder="請輸入帳號"
+        required />
+    </div>
+
+    <div class="form-group">
+      <label for="password">密碼：</label>
+      <input
+        [(ngModel)]="password"
+        type="password"
+        name="password"
+        id="password"
+        placeholder="請輸入密碼"
+        required />
+    </div>
+
+    <button type="submit" class="login-button">登入</button>
+    <p *ngIf="loginFailed" class="error-message">帳號或密碼錯誤!!!</p>
+  </form>
 </div>
-<!-- 注意：這裡只是 demo，實務上會用 (click)="login()" 觸發登入流程 -->

@@ -1,9 +1,13 @@
+// src/app/login/login.component.html
+// 登入組件的 HTML 模板
 <div class="login-container">
   <form (ngSubmit)="login()" class="login-form">
     <div class="form-group">
       <label for="username">帳號：</label>
+      <!-- 新增 input 事件監聽 -->
       <input
         [(ngModel)]="username"
+        (input)="onInputChange()" 
         name="username"
         id="username"
         placeholder="請輸入帳號"
@@ -12,8 +16,10 @@
 
     <div class="form-group">
       <label for="password">密碼：</label>
+      <!-- 新增 input 事件監聽 -->
       <input
         [(ngModel)]="password"
+        (input)="onInputChange()" 
         type="password"
         name="password"
         id="password"

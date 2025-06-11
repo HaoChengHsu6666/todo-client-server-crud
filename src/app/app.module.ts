@@ -16,6 +16,7 @@ import { UnlessDirective } from './unless.directive';
 import { HighlightDirective } from './highlight.directive';
 
 import { ExponentialStrengthPipePipe } from './exponential-strength-pipe.pipe';
+import { ConfirmModalComponent } from './shared/confirm-modal/confirm-modal.component';
 
 
 
@@ -30,7 +31,8 @@ import { ExponentialStrengthPipePipe } from './exponential-strength-pipe.pipe';
     HomeComponent,
     AboutComponent,
     LoginComponent,
-    LayoutComponent
+    LayoutComponent,
+    ConfirmModalComponent
   ],
   imports: [
     BrowserModule,

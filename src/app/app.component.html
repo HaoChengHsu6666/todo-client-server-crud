@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of list; index as i">
+    <tr *ngFor="let item of list; index as i"> <!-- 假設 list 存在於 AppComponent 中 -->
       <td>{{ i + 1 }}</td>
       <td>{{ item.Station }}</td>
       <td>{{ item.Destination }}</td>
@@ -26,12 +26,12 @@
 
 <div *appUnless="isVisible">
   我只有在 isVisible 為 false 時才出現
-</div> 
+</div>
 -->
 
 <!-- show選擇方式2 -->
 
-<p *appUnless="condition" class="unless a">
+<p *appUnless="condition" class="unless a"> <!-- 假設 condition 存在於 AppComponent 中 -->
   (A) 由於條件為假，因此顯示此段落。
 </p>
 
@@ -45,17 +45,28 @@
 
 
 <!-- 傳入字串 -->
-<p [appHighlight]="'yellow'">我會在 hover 時變成黃色</p>
+<p [appHighlight]="'yellow'">我會在 hover 時變成黃色</p> 
 
 <!-- 傳入變數 -->
-<p [appHighlight]="myColor">我會變成變數指定的顏色</p>
+<p [appHighlight]="myColor">我會變成變數指定的顏色</p> 
 
 <!-- 如果沒傳值，預設為紅色 -->
 <p appHighlight>我會變成紅色</p>
 
 
-<app-message-board></app-message-board>
+<app-message-board></app-message-board> 
+<app-todo-list></app-todo-list> 
 
-<app-todo-list></app-todo-list>
 
+<!-- 新增導航連結，用於測試 CanDeactivate Guard -->
+<nav class="mt-8 p-4 bg-gray-100 rounded-lg shadow">
+  <h3 class="text-xl font-semibold mb-3">導航測試</h3>
+  <ul class="flex space-x-4">
+    <li><a routerLink="/login" class="text-blue-600 hover:underline">返回登入頁面</a></li>
+    <li><a routerLink="/home" class="text-blue-600 hover:underline">前往首頁</a></li>
+    <li><a routerLink="/about" class="text-blue-600 hover:underline">前往關於我們</a></li>
+  </ul>
+</nav>
+
+<!-- 路由出口 -->
 <router-outlet></router-outlet>

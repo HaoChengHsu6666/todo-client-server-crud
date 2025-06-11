@@ -1,0 +1,10 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+    <h2 class="modal-title">確認</h2>
+    <p class="modal-message">{{ data.message }}</p>
+    <div class="modal-actions">
+        <button (click)="onConfirm(true)">確定</button>
+        <button (click)="onConfirm(false)">取消</button>
+    </div>
+    </div>
+</div>

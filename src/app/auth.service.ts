@@ -5,7 +5,7 @@ export class AuthService {
   private loggedIn = false;
 
   login(name: string, password: string): boolean {
-    if (name === 'Chris' && password === '123456') {
+    if (name === 'Chris' && password === '0') {
       this.loggedIn = true;
       return true;
     }
